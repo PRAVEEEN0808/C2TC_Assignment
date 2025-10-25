@@ -1,7 +1,6 @@
 package assignment.com.tnisf.ass2;
 	import java.util.Scanner;
 
-	// Student class
 	class Student {
 	    Student() {
 	        System.out.println("Student object is created");
@@ -15,7 +14,6 @@ package assignment.com.tnisf.ass2;
 	    private String phone;
 	    private double salesAmount;
 
-	    // Method to accept details
 	    public void acceptDetails() {
 	        Scanner sc = new Scanner(System.in);
 
