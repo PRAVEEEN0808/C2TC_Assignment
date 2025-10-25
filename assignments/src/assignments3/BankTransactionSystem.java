@@ -1,8 +1,5 @@
 package assignments3;
-	// Banking Transaction System
-	// Demonstrating static, abstract, and final in Java
-
-	// 1️⃣ Static: Bank class
+	
 	class Bank {
 	    private static int totalAccounts = 0; // shared among all instances
 
@@ -14,8 +11,6 @@ package assignments3;
 	        return totalAccounts;
 	    }
 	}
-
-	// 2️⃣ Abstract: Account class
 	abstract class Account {
 	    protected String accountHolderName;
 	    protected double balance;
@@ -23,24 +18,22 @@ package assignments3;
 	    public Account(String accountHolderName, double initialBalance) {
 	        this.accountHolderName = accountHolderName;
 	        this.balance = initialBalance;
-	        Bank.incrementAccounts(); // Every time an account is created, total count increases
+	        Bank.incrementAccounts(); 
 	    }
 
-	    // Abstract methods (must be implemented by subclasses)
 	    public abstract void deposit(double amount);
 	    public abstract void withdraw(double amount);
 	    public abstract double getBalance();
 
-	    // Concrete (non-abstract) method common to all accounts
+	    
 	    public void displayAccountDetails() {
 	        System.out.println("Account Holder: " + accountHolderName);
 	        System.out.println("Current Balance: ₹" + balance);
 	    }
 	}
 
-	// Subclass 1: SavingsAccount
 	class SavingsAccount extends Account {
-	    private static final double INTEREST_RATE = 0.03; // 3% interest
+	    private static final double INTEREST_RATE = 0.03; 
 
 	    public SavingsAccount(String name, double initialBalance) {
 	        super(name, initialBalance);
@@ -68,7 +61,6 @@ package assignments3;
 	    }
 	}
 
-	// Subclass 2: CheckingAccount
 	class CheckingAccount extends Account {
 	    private static final double OVERDRAFT_LIMIT = 5000;
 
@@ -98,9 +90,9 @@ package assignments3;
 	    }
 	}
 
-	// 3️⃣ Final: Transaction class
+
 	final class Transaction {
-	    private final double transactionFee = 10.0; // fixed fee per transaction
+	    private final double transactionFee = 10.0; 
 
 	    public final void performTransaction(Account account, String type, double amount) {
 	        System.out.println("\n--- Transaction Start ---");
@@ -114,30 +106,29 @@ package assignments3;
 	            return;
 	        }
 
-	        // Deduct transaction fee
+	       
 	        account.withdraw(transactionFee);
 	        System.out.println("Transaction fee of ₹" + transactionFee + " applied.");
 	        System.out.println("--- Transaction Completed ---\n");
 	    }
 	}
 
-	// Main Class
+	
 	public class BankTransactionSystem {
 	    public static void main(String[] args) {
-	        // Create accounts
+	        
 	        SavingsAccount s1 = new SavingsAccount("Praveen", 1000);
 	        CheckingAccount c1 = new CheckingAccount("Ravi", 2000);
 
-	        // Perform transactions
+	        
 	        Transaction t = new Transaction();
 	        t.performTransaction(s1, "deposit", 500);
 	        t.performTransaction(c1, "withdraw", 1500);
 
-	        // Display account details
+	        
 	        s1.displayAccountDetails();
 	        c1.displayAccountDetails();
 
-	        // Show total accounts created
 	        System.out.println("\nTotal bank accounts created: " + Bank.getTotalAccounts());
 	    }
 	}

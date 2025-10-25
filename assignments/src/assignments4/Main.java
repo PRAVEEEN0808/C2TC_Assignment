@@ -2,34 +2,34 @@ package assignments4;
 
 import java.util.*;
 
-//Step 1: Interface definition
+
 interface Airfare {
  double calculateAmount();
  void display();
 }
 
-//Step 2: AirIndia class
+
 class AirIndia implements Airfare {
  private int hours;
  private double costPerHour;
 
- // Default constructor
+ 
  public AirIndia() {}
 
- // Parameterized constructor
+
  public AirIndia(int hours, double costPerHour) {
      this.hours = hours;
      this.costPerHour = costPerHour;
  }
 
- // Getters and Setters
+ 
  public int getHours() { return hours; }
  public void setHours(int hours) { this.hours = hours; }
 
  public double getCostPerHour() { return costPerHour; }
  public void setCostPerHour(double costPerHour) { this.costPerHour = costPerHour; }
 
- // Implement methods
+
  public double calculateAmount() {
      return hours * costPerHour;
  }
@@ -39,7 +39,7 @@ class AirIndia implements Airfare {
  }
 }
 
-//Step 3: KingFisher class
+
 class KingFisher implements Airfare {
  private int hours;
  private double costPerHour;
@@ -66,7 +66,7 @@ class KingFisher implements Airfare {
  }
 }
 
-//Step 4: Indigo class
+
 class Indigo implements Airfare {
  private int hours;
  private double costPerHour;
@@ -93,7 +93,7 @@ class Indigo implements Airfare {
  }
 }
 
-//Step 5: Main class (Driver)
+
 public class Main {
  public static void main(String[] args) {
      Scanner sc = new Scanner(System.in);
@@ -120,7 +120,7 @@ public class Main {
              System.exit(0);
      }
 
-     // Display result
+     
      flight.display();
  }
 }
